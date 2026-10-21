@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Segundo Formulario</title>
+</head>
+<body>
+
+    <h2>Segundo Formulario</h2>
+
+    <form action="#" th:action="@{/secondForm}" th:object="${secondForm}" method="post">
+		
+        <input type="hidden" name="datos" th:each="d : ${datos}" th:value="${d}" />
+        <!-- Campo RADIO: Tipo de Entrada -->
+        <div>
+            <label>Tipo de Entrada:</label><br/>
+            <input type="radio" th:field="*{tipoEntrada}" value="Profesor" /> VIP <br/>
+            <input type="radio" th:field="*{tipoEntrada}" value="Director" /> General <br/>
+            <input type="radio" th:field="*{tipoEntrada}" value="Estudiante" /> Estudiante <br/>
+            <span class="error" th:if="${#fields.hasErrors('tipoEntrada')}" th:errors="*{tipoEntrada}"></span>
+        </div>
+        <br/>
+        <button type="submit">Confirmar </button>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Selección múltiple</title>
+</head>
+<body>
+
+  <h2>¿Qué extras quieres? (puedes marcar varios)</h2>
+
+  <form th:action="@{/resultados}" th:object="${thirdForm}" method="post">
+		
+	<input type="hidden" name="datos" th:each="d : ${datos}" th:value="${d}" />
+
+    <label><input type="checkbox" th:field="*{extras}" value="Spring boot"> Spring boot</label><br>
+    <label><input type="checkbox" th:field="*{extras}" value="Javascript"> Javascript</label><br>
+    <label><input type="checkbox" th:field="*{extras}" value="Phyton"> Phyton</label><br>
+    <label><input type="checkbox" th:field="*{extras}" value="C#"> C#</label><br>
+
+    <p style="color:red;" th:if="${#fields.hasErrors('extras')}" th:errors="*{extras}"></p>
+
+    <button type="submit">Ver resultados</button>
+  </form>
+
+</body>
+</html>
