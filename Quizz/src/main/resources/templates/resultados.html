@@ -7,9 +7,9 @@
 <body>
     <h2>Resumen de tu reserva</h2>
 
-    <ol>
-        <li th:each="dato : ${resultados.datos}" th:text="${dato}">Dato</li>
-    </ol>
+	<ol>
+	    <li th:each="dato : ${resultados.datos}" th:text="${dato}">Dato</li>
+	</ol>
 
     <a th:href="@{/firstForm}">Empezar de nuevo</a>
 </body>

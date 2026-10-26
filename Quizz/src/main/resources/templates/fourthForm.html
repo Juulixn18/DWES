@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cuarto Formulario</title>
+</head>
+<body>
+
+    <h2>Cuarto Formulario</h2>
+
+    <form action="#" th:action="@{/resultados}" th:object="${fourthForm}" method="post">
+		
+        <input type="hidden" name="datos" th:each="d : ${datos}" th:value="${d}" />
+        <!-- Campo RADIO: Tipo de Entrada -->
+        <div>
+            <label>Comentario:</label><br/>
+            <input type="text" th:field="*{comentarios}" placeholder="Adjunta tu comentario" />  <br/>
+            <span class="error" th:if="${#fields.hasErrors('comentarios')}" th:errors="*{comentarios}"></span>
+        </div>
+        <br/>
+        <button type="submit">Confirmar </button>
+    </form>
+
+</body>
+</html>

@@ -47,7 +47,8 @@ public class Controladorfirst {
 		modelo.addAttribute("thirdForm", new ThirdForm());
 		return "thirdForm";
 	}
-	@PostMapping("/resultados")
+	
+	@PostMapping("/thirdForm")
 	public String procesarThrid(@Valid @ModelAttribute ThirdForm third, BindingResult resultadoValido, Model modelo) {
 		List<String> datos = new ArrayList<>(third.getDatos());
 		if(resultadoValido.hasErrors()) {
@@ -56,6 +57,23 @@ public class Controladorfirst {
 			return "thirdForm";
 		}
 		datos.add(third.toString());
+		modelo.addAttribute("datos", datos);
+
+		modelo.addAttribute("fourthForm", new FourthForm());
+		return "fourthForm";
+	}
+	
+	
+	
+	@PostMapping("/resultados")
+	public String procesarFourthForm(@Valid @ModelAttribute FourthForm fourth, BindingResult resultadoValido, Model modelo) {
+		List<String> datos = new ArrayList<>(fourth.getDatos());
+		if(resultadoValido.hasErrors()) {
+			System.err.println("Error de validacion");
+			modelo.addAttribute("datos", datos);
+			return "fourthForm";
+		}
+		datos.add(fourth.toString());
 
 		modelo.addAttribute("resultados", new Resultados(datos));
 		return "resultados";

@@ -8,7 +8,7 @@
 
   <h2>¿Qué extras quieres? (puedes marcar varios)</h2>
 
-  <form th:action="@{/resultados}" th:object="${thirdForm}" method="post">
+  <form th:action="@{/thirdForm}" th:object="${thirdForm}" method="post">
 		
 	<input type="hidden" name="datos" th:each="d : ${datos}" th:value="${d}" />
 
