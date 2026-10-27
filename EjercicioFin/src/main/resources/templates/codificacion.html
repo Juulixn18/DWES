@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pruebas de codificación</title>
+</head>
+<body>
+
+    <h2>Pruebas de codificación</h2>
+    <p>Prueba con: áéíóú ñ Ñ \ / ' " ` &lt;b&gt;negrita&lt;/b&gt; &amp; = # + % ?</p>
+
+    <h3>Por POST</h3>
+    <form action="#" th:action="@{/codificacion}" th:object="${codificacionForm}" method="post">
+        <input type="text" th:field="*{texto}" />
+        <span class="error" th:if="${#fields.hasErrors('texto')}" th:errors="*{texto}"></span>
+        <button type="submit">Enviar por POST</button>
+    </form>
+
+    <h3>Por GET</h3>
+    <form th:action="@{/recibir}" method="get">
+        <input type="text" name="texto" />
+        <button type="submit">Enviar por GET</button>
+    </form>
+
+</body>
+</html>

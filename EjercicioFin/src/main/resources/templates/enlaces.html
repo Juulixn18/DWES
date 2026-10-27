@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Enlaces con query-string</title>
+</head>
+<body>
+
+    <h2>Enlaces con query-string</h2>
+    <p>Cada fila tiene un enlace con el texto sin codificar y otro codificado con URLEncoder.encode.</p>
+
+    <table border="1">
+        <tr>
+            <th>Texto</th>
+            <th>Codificado (URLEncoder)</th>
+            <th>Enlace sin codificar</th>
+            <th>Enlace codificado</th>
+        </tr>
+        <tr th:each="c : ${caracteres}">
+            <td><code th:text="${c.key}"></code></td>
+            <td><code th:text="${c.value}"></code></td>
+            <td><a th:href="'/recibir?texto=' + ${c.key}">sin codificar</a></td>
+            <td><a th:href="'/recibir?texto=' + ${c.value}">codificado</a></td>
+        </tr>
+    </table>
+
+    <br/>
+    <a th:href="@{/codificacion}">Volver al formulario</a>
+
+</body>
+</html>
