@@ -10,7 +10,7 @@
 
   <form th:action="@{/thirdForm}" th:object="${thirdForm}" method="post">
 		
-	<input type="hidden" name="datos" th:each="d : ${datos}" th:value="${d}" />
+
 
     <label><input type="checkbox" th:field="*{extras}" value="Spring boot"> Spring boot</label><br>
     <label><input type="checkbox" th:field="*{extras}" value="Javascript"> Javascript</label><br>

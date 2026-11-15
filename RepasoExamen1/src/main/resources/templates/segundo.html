@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<body>
+		<form action="#" th:action="@{/segundo}" th:object="${segundo}" method="post">
+			<table>
+				<tr>
+					<td>Correo</td>
+					<td><input type="email" th:field="*{email}"></td>
+					<td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email invalido</td>
+				</tr>
+				<tr>
+					<td><button type="submit">Enviar</button></td>
+				</tr>
+			</table>
+		</form>
+		
+	</body>
+
+</html>

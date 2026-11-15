@@ -7,7 +7,6 @@ import jakarta.validation.constraints.Size;
 public class FirstForm {
 	@NotNull
 	@Size(min=2,max=20 )
-
 	private String nombre;
 	
 	@NotNull

@@ -6,8 +6,7 @@ import java.util.List;
 public class Resultados {
 	private List<String> datos = new ArrayList<>();
 
-	public Resultados() {
-	}
+
 
 	public Resultados(List<String> datos) {
 		this.datos = datos;

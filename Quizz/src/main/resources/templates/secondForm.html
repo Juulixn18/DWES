@@ -10,7 +10,7 @@
 
     <form action="#" th:action="@{/secondForm}" th:object="${secondForm}" method="post">
 		
-        <input type="hidden" name="datos" th:each="d : ${datos}" th:value="${d}" />
+ 
         <!-- Campo RADIO: Tipo de Entrada -->
         <div>
             <label>Tipo de Entrada:</label><br/>
@@ -21,6 +21,7 @@
         </div>
         <br/>
         <button type="submit">Confirmar </button>
+		<button type="button" onclick="history.back()">Atrás</button>
     </form>
 
 </body>
