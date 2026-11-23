@@ -6,19 +6,26 @@
 </head>
 <body>
     <h1>Iniciar Sesion</h1>
-    <p th:if="${error != null}" th:text="${error}"></p>
-    <form th:action="@{/login}" method="post">
+    <p th:if="${error != null}" th:text="${error}" style="color: red;"></p>
+
+    <form th:action="@{/login}" th:object="${datosLogin}" method="post">
         <table>
             <tr>
                 <td>Usuario:</td>
-                <td><input type="text" name="usuario" /></td>
+                <td>
+                    <input type="text" th:field="*{usuario}" />
+                    <span th:if="${#fields.hasErrors('usuario')}" th:errors="*{usuario}" style="color: red;"></span>
+                </td>
             </tr>
             <tr>
                 <td>Contraseña:</td>
-                <td><input type="password" name="password" /></td>
+                <td>
+                    <input type="password" th:field="*{password}" />
+                    <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" style="color: red;"></span>
+                </td>
             </tr>
             <tr>
-                <td><button type="submit">Iniciar Sesion</button></td>
+                <td colspan="2"><button type="submit">Iniciar Sesion</button></td>
             </tr>
         </table>
     </form>
