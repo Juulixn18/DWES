@@ -1,5 +1,19 @@
 <!DOCTYPE html>
-<html>
-		
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${pagina}">Pagina</title>
+</head>
+<body>
+    <h1>Bienvenido <span th:text="${usuario}"></span></h1>
+    <p>Estas en: <span th:text="${pagina}"></span></p>
 
+    <ul>
+        <li th:if="${pagina != 'Inicio'}"><a th:href="@{/}">Inicio</a></li>
+        <li th:if="${pagina != 'Pagina 1'}"><a th:href="@{/pagina1}">Pagina 1</a></li>
+        <li th:if="${pagina != 'Pagina 2'}"><a th:href="@{/pagina2}">Pagina 2</a></li>
+    </ul>
+
+    <a th:href="@{/logout}">Cerrar sesion</a>
+</body>
 </html>

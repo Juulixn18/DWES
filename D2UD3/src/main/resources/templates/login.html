@@ -1,23 +1,26 @@
 <!DOCTYPE html>
-<html>
-	<body>
-	    <form action="#" th:action="@{/}" th:object="${}" method="post">
-			<h1>Registrate</h1>
-	        <table>
-	            <tr>
-	                <td>Usuario:</td>
-	                <td><input type="text" th:field="*{usuario}" /></td>
-	                <td th:if="${#fields.hasErrors('usuario')}" th:errors="*{usuario}">Usuario Error</td>
-	            </tr>
-	            <tr>
-	                <td>Contraseña:</td>
-	                <td><input type="text" th:field="*{password}" /></td>
-	                <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Edad Error</td>
-	            </tr>
-	            <tr>
-	                <td><button type="submit">Iniciar Sesion</button></td>
-	            </tr>
-	        </table>
-	    </form>
-	</body>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Iniciar Sesion</h1>
+    <p th:if="${error != null}" th:text="${error}"></p>
+    <form th:action="@{/login}" method="post">
+        <table>
+            <tr>
+                <td>Usuario:</td>
+                <td><input type="text" name="usuario" /></td>
+            </tr>
+            <tr>
+                <td>Contraseña:</td>
+                <td><input type="password" name="password" /></td>
+            </tr>
+            <tr>
+                <td><button type="submit">Iniciar Sesion</button></td>
+            </tr>
+        </table>
+    </form>
+</body>
 </html>
